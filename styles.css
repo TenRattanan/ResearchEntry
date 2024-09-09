@@ -24,7 +24,7 @@ tr{
 caption{
   width: 100%;
 }
-@media(max-width:1080px){
+@media(max-width:1200px){
   input[type="text"], input[type="number"], input[type="date"]{
     max-width: 3rem;
   }
