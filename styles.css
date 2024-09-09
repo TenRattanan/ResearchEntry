@@ -24,6 +24,11 @@ tr{
 caption{
   width: 100%;
 }
+@media(max-width:1080px){
+  input[type="text"], input[type="number"], input[type="date"]{
+    max-width: 3rem;
+  }
+}
 input[type=checkbox]{
   margin: 0 3px;
 }
