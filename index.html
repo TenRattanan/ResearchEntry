@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <form method="post" action="">
-    <p id="idNumber">No.<input type="number"></p>
+
+    <!--Button to change page--->
+    <div class="page-btn-container">
+      <button type="button" id="page-btn1">1</button>
+      <button type="button" id="page-btn2">2</button>
+      <button type="button" id="page-btn3">3</button>
+      <button type="button" id="page-btn4">4</button>
+    </div>
+
+    <!--Start form-->
+    <form method="post" id="form">
+
+    <!--- Header -->
+    <p id="idNumber">No.<input type="number" name="Number"></p>
     <h1>Long-Term Outcomes of Post-AKI Survivors</h1>
     <section id="section1">
       <table>
@@ -16,36 +28,36 @@
           <!--Row 1-->
         <tr>
           <td>Sex</td>
-          <td colspan="3"><input type="checkbox" value="male">1. Male <input type="checkbox" value="female">2. Female</td>
+          <td colspan="3"><input type="radio" value="male" name="Sex">1. Male <input type="radio" value="female" name="Sex">2. Female</td>
         </tr>
           <!--Row 2-->
         <tr>
           <td>Age</td>
-          <td><input type="number" placeholder="................" id="age"><label for="age">years old</label></td>
+          <td><input type="number" placeholder="..." id="age" name="Age"><label for="age">years old</label></td>
           <td>DOB</td>
-          <td><input type="date"></td>
+          <td style="text-align:center"><input type="date" name="DOB"></td>
         </tr>
           <!--Row 3-->
         <tr>
           <td>Height</td>
-          <td>.....cm</td>
+          <td><input type="number" name="Height" placeholder="..."> cm</td>
           <td>Weight</td>
-          <td>.......kg</td>
+          <td><input type="number" name="Weight" placeholder="..."> kg</td>
         </tr>
           <!--Row 4-->
         <tr>
           <td>Hospital Admission</td>
-          <td colspan="3"><input type="date"></td>
+          <td colspan="3" style="text-align:center"><input type="date" name="Hospital Admission"></td>
         </tr>
           <!--Row 5-->
         <tr>
           <td>Discharge date</td>
-          <td colspan="3"><input type="date"></td>
+          <td colspan="3" style="text-align:center"><input type="date" name="Discharge date"></td>
         </tr>
           <!--Row 6 Admission diagnosis-->
         <tr>
           <td>Admission diagnosis</td>
-          <td colspan="3"><input type="text" style="width: 100%; text-align:left"></td>
+          <td colspan="3"><input type="text" style="width: 100%; text-align:left" name="Admission diagnosis"></td>
         </tr>
           <!--Row 7-->
         <tr>
@@ -69,17 +81,17 @@
         <tr>
           <td>ICU admission</td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="ICU admission">1. Yes 
+            <input type="radio" value="no" name="ICU admission">2. No
           </td>
         </tr>
         <!--Row 9-->
         <tr>
           <td>Primary ward</td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Medical 
-            <input type="checkbox" value="no">2. Surgical
-            <input type="checkbox" value="no">3. Other
+            <input type="radio" value="Medical" name="Primary ward">1. Medical 
+            <input type="radio" value="Surgical" name="Primary ward">2. Surgical
+            <input type="radio" value="Other" name="Primary ward">3. Other
           </td>
         </tr>
         <!--Row 10  Comorbidity-->
@@ -92,8 +104,8 @@
         <tr>
           <td>DM type 2 </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="DM type 2">1. Yes 
+            <input type="radio" value="no" name="DM type 2">2. No
           </td>
         </tr>
 
@@ -101,8 +113,8 @@
         <tr>
           <td>Hypertension </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Hypertension">1. Yes 
+            <input type="radio" value="no" name="Hypertension">2. No
           </td>
         </tr>
 
@@ -110,8 +122,8 @@
         <tr>
           <td>Dyslipidemia </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Dyslipidemia">1. Yes 
+            <input type="radio" value="no" name="Dyslipidemia">2. No
           </td>
         </tr>
 
@@ -119,8 +131,8 @@
         <tr>
           <td>Chronic kidney disease </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Chronic kidney disease">1. Yes 
+            <input type="radio" value="no" name="Chronic kidney disease">2. No
           </td>
         </tr>
 
@@ -128,8 +140,8 @@
         <tr>
           <td>Ischemic heart disease </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Ischemic heart disease">1. Yes 
+            <input type="radio" value="no" name="Ischemic heart disease">2. No
           </td>
         </tr>
 
@@ -137,8 +149,8 @@
         <tr>
           <td>Heart failure </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Heart failure">1. Yes 
+            <input type="radio" value="no" name="Heart failure">2. No
           </td>
         </tr>
 
@@ -146,8 +158,8 @@
         <tr>
           <td>Stroke </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Stroke">1. Yes 
+            <input type="radio" value="no" name="Stroke">2. No
           </td>
         </tr>
 
@@ -155,15 +167,15 @@
         <tr>
           <td>Malignancy </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Malignancy">1. Yes 
+            <input type="radio" value="no" name="Malignancy">2. No
           </td>
         </tr>
 
         <!--Row 19-->
         <tr>
           <td>Other </td>
-          <td colspan="3"><input type="text" style="width: 100%; text-align:left" placeholder="Please identify"></td>
+          <td colspan="3"><input type="text" style="width: 100%; text-align:left" placeholder="Please identify" name="Other"></td>
         </tr>
 
         <!--Row 20  Past history-->
@@ -178,11 +190,11 @@
           <td>Smoking </td>
           <td colspan="3">
             <span>
-              <input type="checkbox" value="yes">1. Yes 
-              <input type="checkbox" value="no">2. No
+              <input type="radio" value="yes" name="Smoking">1. Yes 
+              <input type="radio" value="no" name="Smoking">2. No
             </span>
-            <span style="position: absolute; right:6%">
-              <input type="number">Packyear
+            <span style="margin-left: 5%">
+              <input type="number" name="Packyear"> Packyear
             </span>
           </td>
         </tr>
@@ -191,8 +203,8 @@
         <tr>
           <td>Alcohol </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Alcohol">1. Yes 
+            <input type="radio" value="no" name="Alcohol">2. No
           </td>
         </tr>
 
@@ -200,8 +212,8 @@
         <tr>
           <td>Exercise </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Exercise">1. Yes 
+            <input type="radio" value="no" name="Exercise">2. No
           </td>
         </tr>
 
@@ -209,13 +221,117 @@
         <tr>
           <td>Herbal </td>
           <td colspan="3">
-            <input type="checkbox" value="yes">1. Yes 
-            <input type="checkbox" value="no">2. No
+            <input type="radio" value="yes" name="Herbal">1. Yes 
+            <input type="radio" value="no" name="Herbal">2. No
           </td>
         </tr>
 
       </table>
     </section> <!---End section 1--->
+
+    <section id="section2"></section>
+    <section id="section3"></section>
+    <section id="section4"></section>
+
+    <div class="button-container">
+        <button type="submit" id="submit-button">Send</button>
+    </div>
     </form>
+    <div
+      id="message"
+      style="
+        display: none;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "
+    ></div>
   </body>
+    
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch(
+          "https://script.google.com/macros/s/AKfycbyqOv7uEOaR6sYX49q4QYMGLoy1NrmiJIgc11lQM3uUWJyfkcxZef8nX-6SrpnxzTrwaA/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            // Check if the request was successful
+            if (response) {
+              return response; // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 2600);
+          })
+          .catch(function (error) {
+            // Handle errors, you can display an error message here
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+
+      //script to control section
+      let sectionN = 4;
+      const sec = [];
+      const btn = [];
+      
+      for(let i=0;i<sectionN;i++){
+        sec.push(document.getElementById(`section${i+1}`));
+        btn.push(document.getElementById(`page-btn${i+1}`));
+        btn[i].addEventListener('click',()=>{
+          for(let j = 0; j< sec.length;j++) //hide every other section
+          {
+            if(sec[j].classList.contains("hidden") == false){
+              sec[j].classList.add("hidden");
+            }
+          }
+          sec[i].classList.remove("hidden"); //show the section that btn pressed
+        });
+      }
+
+    </script>
 </html>
