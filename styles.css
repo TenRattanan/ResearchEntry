@@ -1,14 +1,11 @@
 *{
   margin: 0;
   box-sizing: border-box;
-  border: solid 1px black; 
-}
-#idNumber{
-  text-align: right;
-  margin-right: 10px;
 }
 h1{
   text-align: center;
+  margin: 5px auto;
+  width: 90%;
 }
 body{
   width: 100%;
@@ -17,19 +14,64 @@ table{
   margin: 0 auto;
   width: 90%;
   border-spacing: 0px;
+  border: solid 1px black; 
+}
+table *{
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 tr{
   width: 100%;
 }
+td{
+  border: solid 1px black; 
+}
 caption{
   width: 100%;
+  margin: 3px auto;
 }
-input[type="text"], input[type="number"], input[type="date"]{
-  max-width: 3rem;
+input[type="text"]{
+  width: 10rem;
 }
-input[type=checkbox]{
+input[type="number"]{
+  width: 3rem;
+}
+input[type="date"]{
+  width: 1rem;
+}
+input[type="checkbox"],input[type="radio"]{
   margin: 0 3px;
 }
 input{
   text-align: center;
+}
+.button-container{
+  width: 100%;
+  text-align: center;
+}
+.button-container button{
+  padding: 10px 20px;
+  margin: 10px 10px;
+}
+.button-container button:hover{
+  cursor: pointer;
+}
+.button-container button:active{
+  background-color: black;
+}
+#idNumber{
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+#idNumber input{
+  width: 10rem;
+}
+.hidden{
+  display: none;
+}
+.page-btn-container{
+  position: fixed;
+  top: 5px;
+  left: 5px;
 }
