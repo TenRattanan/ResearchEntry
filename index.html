@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <form method="post" action="">
+    <p id="idNumber">No.<input type="number"></p>
+    <h1>Long-Term Outcomes of Post-AKI Survivors</h1>
+    <section id="section1">
+      <table>
+        <!--Part I-->
+        <caption>Part I: Review History and Diagnosis</caption>
+          <!--Row 1-->
+        <tr>
+          <td>Sex</td>
+          <td colspan="3"><input type="checkbox" value="male">1. Male <input type="checkbox" value="female">2. Female</td>
+        </tr>
+          <!--Row 2-->
+        <tr>
+          <td>Age</td>
+          <td><input type="number" placeholder="................" id="age"><label for="age">years old</label></td>
+          <td>DOB</td>
+          <td><input type="date"></td>
+        </tr>
+          <!--Row 3-->
+        <tr>
+          <td>Height</td>
+          <td>.....cm</td>
+          <td>Weight</td>
+          <td>.......kg</td>
+        </tr>
+          <!--Row 4-->
+        <tr>
+          <td>Hospital Admission</td>
+          <td colspan="3"><input type="date"></td>
+        </tr>
+          <!--Row 5-->
+        <tr>
+          <td>Discharge date</td>
+          <td colspan="3"><input type="date"></td>
+        </tr>
+          <!--Row 6 Admission diagnosis-->
+        <tr>
+          <td>Admission diagnosis</td>
+          <td colspan="3"><input type="text" style="width: 100%; text-align:left"></td>
+        </tr>
+          <!--Row 7-->
+        <tr>
+          <td rowspan="4">Cause of admission</td>
+          <td colspan="3">
+            <span><input type="checkbox">1. Pulmonary </span>
+            <span><input type="checkbox">2. Endocrine </span>
+            <span><input type="checkbox">3. Cardiovascular </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="checkbox">4. Genitourinary <input type="checkbox">5. Hematology <input type="checkbox">6. Neurology </td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="checkbox">7. Skin/soft tissue infection <input type="checkbox">8. Surgery <input type="checkbox">9. Systemic infection</td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="checkbox">10. Gastrointestinal <input type="checkbox">11. Ob/Gyne <input type="checkbox">12. Other </td>
+        </tr>
+        <!--Row 8-->
+        <tr>
+          <td>ICU admission</td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+        <!--Row 9-->
+        <tr>
+          <td>Primary ward</td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Medical 
+            <input type="checkbox" value="no">2. Surgical
+            <input type="checkbox" value="no">3. Other
+          </td>
+        </tr>
+        <!--Row 10  Comorbidity-->
+        <tr>
+          <td colspan="4">
+            <strong>Comorbidity</strong>
+          </td>
+        </tr>
+        <!--Row 11-->
+        <tr>
+          <td>DM type 2 </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 12-->
+        <tr>
+          <td>Hypertension </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 13-->
+        <tr>
+          <td>Dyslipidemia </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 14-->
+        <tr>
+          <td>Chronic kidney disease </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 15-->
+        <tr>
+          <td>Ischemic heart disease </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 16-->
+        <tr>
+          <td>Heart failure </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 17-->
+        <tr>
+          <td>Stroke </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 18-->
+        <tr>
+          <td>Malignancy </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 19-->
+        <tr>
+          <td>Other </td>
+          <td colspan="3"><input type="text" style="width: 100%; text-align:left" placeholder="Please identify"></td>
+        </tr>
+
+        <!--Row 20  Past history-->
+        <tr>
+          <td colspan="4">
+            <strong>Past history</strong>
+          </td>
+        </tr>
+
+        <!--Row 21-->
+        <tr>
+          <td>Smoking </td>
+          <td colspan="3">
+            <span>
+              <input type="checkbox" value="yes">1. Yes 
+              <input type="checkbox" value="no">2. No
+            </span>
+            <span style="position: absolute; right:6%">
+              <input type="number">Packyear
+            </span>
+          </td>
+        </tr>
+
+        <!--Row 22-->
+        <tr>
+          <td>Alcohol </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 23-->
+        <tr>
+          <td>Exercise </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+        <!--Row 24-->
+        <tr>
+          <td>Herbal </td>
+          <td colspan="3">
+            <input type="checkbox" value="yes">1. Yes 
+            <input type="checkbox" value="no">2. No
+          </td>
+        </tr>
+
+      </table>
+    </section> <!---End section 1--->
+    </form>
+  </body>
+</html>
