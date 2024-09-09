@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  border: solid 1px black; 
+}
+#idNumber{
+  text-align: right;
+  margin-right: 10px;
+}
+h1{
+  text-align: center;
+}
+body{
+  width: 100%;
+}
+table{
+  margin: 0 auto;
+  width: 90%;
+  border-spacing: 0px;
+}
+tr{
+  width: 100%;
+}
+caption{
+  width: 100%;
+}
+input[type=checkbox]{
+  margin: 0 3px;
+}
+input{
+  text-align: center;
+}
