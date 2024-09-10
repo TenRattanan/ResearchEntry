@@ -2,6 +2,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html{
+  background-color: brown;
+}
 h1{
   text-align: center;
   margin: 5px auto;
@@ -9,6 +12,10 @@ h1{
 }
 body{
   width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  padding-top: 10px;
+  background-color: white;
 }
 table{
   margin: 0 auto;
@@ -31,13 +38,13 @@ caption{
   margin: 3px auto;
 }
 input[type="text"]{
-  width: 10rem;
+  width: 100%;
 }
 input[type="number"]{
   width: 3rem;
 }
 input[type="date"]{
-  width: 1rem;
+  width: 100%;
 }
 input[type="checkbox"],input[type="radio"]{
   margin: 0 3px;
@@ -62,7 +69,6 @@ input{
 #idNumber{
   text-align: right;
   margin-right: 10px;
-  margin-top: 10px;
 }
 #idNumber input{
   width: 10rem;
@@ -74,4 +80,13 @@ input{
   position: fixed;
   top: 5px;
   left: 5px;
+}
+section{
+  margin-bottom: 10px;
+}
+.smallfont{
+  font-size: 80%;
+}
+.smallinput input{
+  width: 100%;
 }
