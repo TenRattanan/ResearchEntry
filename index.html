@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head> 
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -32,17 +32,17 @@
         </tr>
           <!--Row 2-->
         <tr>
-          <td>Age</td>
-          <td><input type="number" placeholder="..." id="age" name="Age"><label for="age">years old</label></td>
+          <td><label for="age">Age (years old)</label></td>
+          <td><input type="number" placeholder="..." id="age" name="Age"></td>
           <td>DOB</td>
           <td style="text-align:center"><input type="text" name="DOB"></td>
         </tr>
           <!--Row 3-->
         <tr>
-          <td>Height</td>
-          <td><input type="number" name="Height" placeholder="..."> cm</td>
-          <td>Weight</td>
-          <td><input type="number" name="Weight" placeholder="..."> kg</td>
+          <td>Height (cm)</td>
+          <td><input type="number" name="Height" placeholder="..."> </td>
+          <td>Weight (kg)</td>
+          <td><input type="number" name="Weight" placeholder="..."> </td>
         </tr>
           <!--Row 4-->
         <tr>
@@ -336,41 +336,35 @@
         </tr>
       </table>
     </section> 
-    <!------------------------End section 2---------------------------->
+    <!--------------End section 2--------------->
 
 
-    <section id="section3">
-      <table>
+    <section id="section3" class="hidden">
+      <table id="tableWildcard">
         <caption>
           Part III: Follow up
         </caption>
-        <tr>
+        <!-----------1st row------------>
+        <tr style="text-align: center">
           <td></td>
-          <td>1st visit</td>
-          <td>3mo</td>
-          <td>6mo</td>
-          <td>9mo</td>
+          <td><span id="s3th1">1stvisit</span><br><input type="text"></td>
+          <td><span id="s3th2">3mo</span><br><input type="text"></td>
+          <td><span id="s3th3">6mo</span><br><input type="text"></td>
+          <td><span id="s3th4">9mo</span><br><input type="text"></td>
+          <td><span id="s3th5">12mo</span><br><input type="text"></td>
+          <td><span id="s3th6">15mo</span><br><input type="text"></td>
+          <td><span id="s3th7">18mo</span><br><input type="text"></td>
+          <td><span id="s3th8">24mo</span><br><input type="text"></td>
+          <td>
+            <input id="s3th9" type="text" placeholder="()" style="margin: 0 auto"><br><input type="text">
+          </td>
+          <td>
+            <input id="s3th10" type="text" placeholder="()" style="margin: 0 auto"><br><input type="text">
+          </td>
+
         </tr>
-        <tr class="smallinput" style="text-align: center">
-          <td>BW(kg)</td>
-          <td><input type="number" step="0.1" name="BW-1stvisit"></td>
-          <td><input type="number" step="0.1" name="BW-3mo"></td>
-          <td><input type="number" step="0.1" name="BW-6mo"></td>
-          <td><input type="number" step="0.1" name="BW-9mo"></td>
-          <td><input type="number" step="0.1" name="BW-12mo"></td>
-          <td><input type="number" step="0.1" name="BW-24mo"></td>
-          <td><input type="number" step="0.1" name="BW-1"></td>
-          <td><input type="number" step="0.1" name="BW-2"></td>
-          <td><input type="number" step="0.1" name="BW-3"></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>12mo</td>
-          <td>24mo</td>
-          <td style="width:2rem"></td>
-          <td style="width:2rem"></td>
-          <td style="width:2rem"></td>
-        </tr>
+        <!-------End of 1st row-------->
+        <!--Auto add row (function createTable)--->
       </table>
     </section>
     <section id="section4"></section>
@@ -481,5 +475,85 @@
     for(let i =0;i<dateInputArr.length;i++){
       dateInputArr[i].defaultValue = "1980-06-15";
     }
+
+    //auto create new row
+    const TBwildcard = document.getElementById("tableWildcard");
+    const createTable = (TBhead,TBstep="0.1") => {
+        return `<tr>
+          <td id=${TBhead}>${TBhead}</td>
+          <td><input type="number" name="${TBhead}-1stvisit" step=${TBstep} id="${TBhead}-1stvisit" step=${TBstep}></td>
+          <td><input type="number" name="${TBhead}-3mo" step=${TBstep} id="${TBhead}-3mo"></td>
+          <td><input type="number" name="${TBhead}-6mo" step=${TBstep} id="${TBhead}-6mo"></td>
+          <td><input type="number" name="${TBhead}-9mo" step=${TBstep} id="${TBhead}-9mo"></td>
+          <td><input type="number" name="${TBhead}-12mo" step=${TBstep} id="${TBhead}-12mo"></td>
+          <td><input type="number" name="${TBhead}-15mo" step=${TBstep} id="${TBhead}-15mo"></td>
+          <td><input type="number" name="${TBhead}-18mo" step=${TBstep} id="${TBhead}-18mo"></td>
+          <td><input type="number" name="${TBhead}-24mo" step=${TBstep} id="${TBhead}-24mo"></td>
+          <td><input type="number" name="${TBhead}-extra1" step=${TBstep} id="${TBhead}-extra1"></td>
+          <td><input type="number" name="${TBhead}-extra2" step=${TBstep} id="${TBhead}-extra2"></td>
+        </tr>`;
+    }
+
+    //create row for section 3
+    TBwildcard.innerHTML += createTable("BW");
+    document.getElementById("BW").innerText+=" (kg)";
+    TBwildcard.innerHTML += createTable("SBP");
+    document.getElementById("SBP").innerText+=" (mmHg)";
+    TBwildcard.innerHTML += createTable("DBP");
+    document.getElementById("DBP").innerText+=" (mmHg)";
+    TBwildcard.innerHTML += createTable("MAP");
+    document.getElementById("MAP").innerText+=" (mmHg)";
+    document.getElementById("MAP").innerHTML+="<button type='button' id='MAP-btn'>MAP</button>";
+    TBwildcard.innerHTML += createTable("BUN");
+    TBwildcard.innerHTML += createTable("Cr");
+    TBwildcard.innerHTML += createTable("eGFR");
+    TBwildcard.innerHTML += createTable("Na");
+    TBwildcard.innerHTML += createTable("K");
+    TBwildcard.innerHTML += createTable("Cl");
+    TBwildcard.innerHTML += createTable("HCO3");
+    TBwildcard.innerHTML += createTable("Ca");
+    TBwildcard.innerHTML += createTable("PO4");
+    TBwildcard.innerHTML += createTable("Hb");
+    TBwildcard.innerHTML += createTable("Hct");
+    TBwildcard.innerHTML += createTable("FBG");
+    TBwildcard.innerHTML += createTable("HbA1c");
+    TBwildcard.innerHTML += createTable("Cho");
+    TBwildcard.innerHTML += createTable("LDL");
+    TBwildcard.innerHTML += createTable("Alb");
+    TBwildcard.innerHTML += createTable("Vit D");
+    TBwildcard.innerHTML += createTable("iPTH");
+    TBwildcard.innerHTML += createTable("Iron");
+    TBwildcard.innerHTML += createTable("TIBC");
+    TBwildcard.innerHTML += createTable("Ferritin");
+    TBwildcard.innerHTML += createTable("UACR");
+    TBwildcard.innerHTML += createTable("24-h urine Na");
+    TBwildcard.innerHTML += createTable("Prot intake");
+
+    //Auto set MAP
+    const autoSetMAP = (n) => {
+      for(let i=0;i<n;i++){
+        let sbp = 0;
+        let dbp = 0;
+        let map;
+        let thtext = "";
+        let fixHeader = 8; // 8 come from amount of fixed header (1stvisit to 24mo)
+        if(i<fixHeader){ 
+          thtext = document.getElementById(`s3th${i+1}`).textContent;
+          sbp = document.getElementById(`SBP-${thtext}`)?.value?document.getElementById(`SBP-${thtext}`)?.value:0;
+        dbp = document.getElementById(`DBP-${thtext}`)?.value?document.getElementById(`DBP-${thtext}`)?.value:0;
+        map = document.getElementById(`MAP-${thtext}`);
+        }else{
+          sbp = document.getElementById(`SBP-extra${i-fixHeader+1}`)?.value?document.getElementById(`SBP-extra${i-fixHeader+1}`)?.value:0;
+        dbp = document.getElementById(`SBP-extra${i-fixHeader+1}`)?.value?document.getElementById(`SBP-extra${i-fixHeader+1}`)?.value:0;
+        map = document.getElementById(`MAP-extra${i-fixHeader+1}`);
+        //call extra1, extra2 element
+        }
+
+        if(map){
+          map.value=(parseInt(sbp)+(parseInt(dbp)*2))/3;
+        }
+      }
+    }
+    document.getElementById("MAP-btn").addEventListener('click',()=>{autoSetMAP(10)});
     </script>
 </html>
