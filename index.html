@@ -13,12 +13,15 @@
       <button type="button" id="page-btn2">2</button>
       <button type="button" id="page-btn3">3</button>
       <button type="button" id="page-btn4">4</button>
+      <button type="button" id="page-btn5">note</button>
     </div>
 
     <!--Start form-->
     <form method="post" id="form">
 
     <!--- Header -->
+    <p id="FullName">Name <input type="text" name="FullName"></p>
+    <p id="HNNumber">HN <input type="number" name="HN"></p>
     <p id="idNumber">No. <input type="number" name="Number"></p>
     <h1>Long-Term Outcomes of Post-AKI Survivors</h1>
     <section id="section1">
@@ -33,16 +36,16 @@
           <!--Row 2-->
         <tr>
           <td><label for="age">Age (years old)</label></td>
-          <td><input type="number" placeholder="..." id="age" name="Age"></td>
+          <td><input type="number" placeholder="..." id="age" name="Age" step="0.01"></td>
           <td>DOB</td>
           <td style="text-align:center"><input type="text" name="DOB"></td>
         </tr>
           <!--Row 3-->
         <tr>
           <td>Height (cm)</td>
-          <td><input type="number" name="Height" placeholder="..."> </td>
+          <td><input type="number" name="Height" placeholder="..." step="0.01"> </td>
           <td>Weight (kg)</td>
-          <td><input type="number" name="Weight" placeholder="..."> </td>
+          <td><input type="number" name="Weight" placeholder="..." step="0.01"> </td>
         </tr>
           <!--Row 4-->
         <tr>
@@ -269,14 +272,14 @@
         <tr>
           <td>Etiology of AKI</td>
           <td colspan="4">
-            <input type="radio" value="Ischemic" name="Ischemic">1. Ischemic 
-            <input type="radio" value="Sepsis" name="Sepsis">2. Sepsis
-            <input type="radio" value="Cardiorenal" name="Cardiorenal">3. Cardiorenal
-            <input type="radio" value="Nephrotoxic/MALA" name="Nephrotoxic/MALA">4. Nephrotoxic/MALA
-            <input type="radio" value="Obstructive uropathy" name="Obstructive uropathy">5. Obstructive uropathy
-            <input type="radio" value="Systemic disease/GN" name="Systemic disease/GN">6. Systemic disease/GN
-            <input type="radio" value="Multifactorial" name="Multifactorial">7. Multifactorial
-            <input type="radio" value="Other" name="Other2">8. Other
+            <input type="radio" value="Ischemic" name="Etiology of AKI">1. Ischemic 
+            <input type="radio" value="Sepsis" name="Etiology of AKI">2. Sepsis
+            <input type="radio" value="Cardiorenal" name="Etiology of AKI">3. Cardiorenal
+            <input type="radio" value="Nephrotoxic/MALA" name="Etiology of AKI">4. Nephrotoxic/MALA
+            <input type="radio" value="Obstructive uropathy" name="Etiology of AKI">5. Obstructive uropathy
+            <input type="radio" value="Systemic disease/GN" name="Etiology of AKI">6. Systemic disease/GN
+            <input type="radio" value="Multifactorial" name="Etiology of AKI">7. Multifactorial
+            <input type="radio" value="Other" name="Etiology of AKI">8. Other
             <input type="text" name="Etiology-Other">
 
             <!----Other have same name as other in part I---->
@@ -295,12 +298,12 @@
             <input type="radio" value="CRRT" name="First Mode of RRT">3. CRRT
             <hr>
             <p>Indication for RRT</p>
-            <input type="checkbox" value="yes" name="Acidosis">1. Acidosis
-            <input type="checkbox" value="yes" name="Hyperkalemia">2. Hyperkalemia
-            <input type="checkbox" value="yes" name="Intoxication">3. Intoxication
-            <input type="checkbox" value="yes" name="Volume overload/control">4. Volume overload/control
-            <input type="checkbox" value="yes" name="Uremia">5. Uremia
-            <input type="checkbox" value="yes" name="Other3">6. Other
+            <input type="checkbox" value="yes" name="I/C RRT Acidosis">1. Acidosis
+            <input type="checkbox" value="yes" name="I/C RRT Hyperkalemia">2. Hyperkalemia
+            <input type="checkbox" value="yes" name="I/C RRT Intoxication">3. Intoxication
+            <input type="checkbox" value="yes" name="I/C RRT Volume overload/control">4. Volume overload/control
+            <input type="checkbox" value="yes" name="I/C RRT Uremia">5. Uremia
+            <input type="checkbox" value="yes" name="I/C RRT Other">6. Other
             <input type="text" name="Indication-Other">
 
             <!----Other have same name as other in part I---->
@@ -347,19 +350,19 @@
         <!-----------1st row------------>
         <tr style="text-align: center">
           <td></td>
-          <td><span id="s3th1">1stvisit</span><br><input type="text"></td>
-          <td><span id="s3th2">3mo</span><br><input type="text"></td>
-          <td><span id="s3th3">6mo</span><br><input type="text"></td>
-          <td><span id="s3th4">9mo</span><br><input type="text"></td>
-          <td><span id="s3th5">12mo</span><br><input type="text"></td>
-          <td><span id="s3th6">15mo</span><br><input type="text"></td>
-          <td><span id="s3th7">18mo</span><br><input type="text"></td>
-          <td><span id="s3th8">24mo</span><br><input type="text"></td>
+          <td><span id="s3th1">1stvisit</span><br><input type="text" name="date-1stvisit"></td>
+          <td><span id="s3th2">3mo</span><br><input type="text" name="date-3mo"></td>
+          <td><span id="s3th3">6mo</span><br><input type="text" name="date-6mo"></td>
+          <td><span id="s3th4">9mo</span><br><input type="text" name="date-9mo"></td>
+          <td><span id="s3th5">12mo</span><br><input type="text" name="date-12mo"></td>
+          <td><span id="s3th6">15mo</span><br><input type="text" name="date-15mo"></td>
+          <td><span id="s3th7">18mo</span><br><input type="text" name="date-18mo"></td>
+          <td><span id="s3th8">24mo</span><br><input type="text" name="date-24mo"></td>
           <td>
-            <input id="s3th9" type="text" placeholder="()" style="margin: 0 auto"><br><input type="text">
+            <input id="s3th9" type="text" placeholder="()" style="margin: 0 auto" name="date-label-extra1"><br><input type="text" name="date-extra1">
           </td>
           <td>
-            <input id="s3th10" type="text" placeholder="()" style="margin: 0 auto"><br><input type="text">
+            <input id="s3th10" type="text" placeholder="()" style="margin: 0 auto" name="date-label-extra2"><br><input type="text" name="date-extra2">
           </td>
 
         </tr>
@@ -515,7 +518,15 @@
         </script>
       </table>
     </section>
-    <section>
+
+    <section id="section5" style="margin-top: 20px">
+      <fieldset style="width:90%; margin: 0 auto">
+      <legend><h3>Add reminder</h3></legend>
+      <textarea cols="40" rows="10" name="Note" id="note" style="text-align:left; margin: 0 auto"></textarea>
+      </fieldset>
+    </section>
+
+    <section> 
       <table id="genNameTB"></table>
     </section>
     <div class="button-container">
@@ -600,7 +611,7 @@
       });
 
       //script to control section
-      let sectionN = 4;
+      let sectionN = 5;
       const sec = [];
       const btn = [];
       
@@ -627,7 +638,7 @@
 
     //auto create new row
     const TBwildcard = document.getElementById("tableWildcard");
-    const createTable = (TBhead,TBstep="0.1") => {
+    const createTable = (TBhead,TBstep="0.01") => {
         return `<tr>
           <td id=${TBhead}>${TBhead}</td>
           <td><input type="number" name="${TBhead}-1stvisit" step=${TBstep} id="${TBhead}-1stvisit" step=${TBstep}></td>
