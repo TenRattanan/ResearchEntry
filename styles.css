@@ -66,11 +66,12 @@ input{
 .button-container button:active{
   background-color: black;
 }
-#idNumber{
+#HNNumber,#FullName,#idNumber{
   text-align: right;
   margin-right: 10px;
+  margin-top:3px;
 }
-#idNumber input{
+#idNumber input,#HNNumber input,#FullName input{
   width: 10rem;
 }
 .hidden{
