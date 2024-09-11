@@ -67,7 +67,7 @@
             <span><input type="radio" name="Cause of admission" value="Endocrine">2. Endocrine </span>
             <span><input type="radio" name="Cause of admission" value="Cardiovascular">3. Cardiovascular </span>
           </td>
-        </tr>
+        </tr> 
         <tr>
           <td colspan="3">
             <input type="radio" name="Cause of admission" value="Genitourinary">4. Genitourinary 
@@ -654,7 +654,7 @@
     document.getElementById("MAP").innerText+=" (mmHg)";
     document.getElementById("MAP").innerHTML+="<button type='button' id='MAP-btn'>MAP</button>";
     TBwildcard.innerHTML += createTable("BUN");
-    TBwildcard.innerHTML += createTable("Cr");
+    TBwildcard.innerHTML += createTable("Cr","0.01");
     TBwildcard.innerHTML += createTable("eGFR");
     TBwildcard.innerHTML += createTable("Na");
     TBwildcard.innerHTML += createTable("K");
@@ -699,7 +699,7 @@
         }
 
         if(map){
-          map.value=(parseInt(sbp)+(parseInt(dbp)*2))/3;
+          map.value=Math.floor((parseInt(sbp)+(parseInt(dbp)*2))/3);
         }
       }
     }
