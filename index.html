@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
+  <head>
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -367,8 +367,157 @@
         <!--Auto add row (function createTable)--->
       </table>
     </section>
-    <section id="section4"></section>
+    <!--------------section 4------------>
+    <section id="section4">
+      <table id="section4-TB">
+        <caption>Part IV: Outcomes at 1 year</caption>
+        <tr>
+          <td colspan="2">Follow-up</td>
+          <td>
+            <input type="radio" name="Follow-up" value="yes">1. Yes
+            <input type="radio" name="Follow-up" value="no">0. No
+          </td> 
+        </tr>
+        <tr>
+          <td colspan="2">Who follow-up</td>
+          <td>
+            <input type="radio" name="Who follow-up" value="MDCT">1. MDCT
+            <input type="radio" name="Who follow-up" value="Nephrologist">2. Nephrologist
+            <input type="radio" name="Who follow-up" value="Intern/GP/Med">3. Intern/GP/Med
+          </td> 
+        </tr>
 
+        <tr>
+          <td colspan="2">Status</td>
+          <td>
+            <input type="radio" name="Status" value="Alive">1. Alive
+            <input type="radio" name="Status" value="Death">0. Death<input type="text" name="Death-date" placeholder="Death date">
+          </td> 
+        </tr>
+        
+        <tr>
+          <td colspan="2">Cause of death</td>
+          <td>
+            <input type="radio" name="Cause of death" value="Cardiovascular">1. Cardiovascular
+            <input type="radio" name="Cause of death" value="Sepsis">2. Sepsis
+            <input type="radio" name="Cause of death" value="Renal">3. Renal
+            <input type="radio" name="Cause of death" value="Other">4. Other<input type="text" name="Cause of death">
+          </td> 
+        </tr>
+
+        <tr>
+          <td colspan="3">Renal outcomes</td>
+        </tr>
+        
+        <script>
+          const sec4TB = document.getElementById("section4-TB");
+          //auto generate yes no question
+          const autoGenerateYesNo = (headingText,headingName=headingText,includeDate=true) => {
+            return `<tr>
+                <td colspan="2">${headingText}</td>
+                <td>
+                  <input type="radio" name="${headingName}" value="yes">1. Yes
+                  <input type="radio" name="${headingName}" value="no">0. No
+                  <input type="text" name="${headingName}-date" placeholder="input date">
+                </td> 
+              </tr>`;
+          }
+          //auto generate header
+          const autoGenerateHeader = (headingText) => {
+            return `<tr>
+                <td colspan="3">${headingText}</td> 
+              </tr>`;
+          }
+
+          sec4TB.innerHTML += autoGenerateYesNo("Renal recovery");
+          sec4TB.innerHTML += autoGenerateYesNo("Progression to CKD (changing staging in previous CKD)","Progression to CKD");
+          sec4TB.innerHTML += autoGenerateYesNo("Denovo CKD (New CKD in no previous CKD)","Denovo CKD");
+          sec4TB.innerHTML += autoGenerateYesNo("Progression of albuminuria(Change staging)","Progression of albuminuria");
+          sec4TB.innerHTML += `<tr>
+                <td colspan="2">Recurrent AKI</td>
+                <td>
+                  <input type="radio" name="Recurrent AKI" value="yes">1. Yes
+                  <input type="radio" name="Recurrent AKI" value="no">0. No
+                  <input type="text" name="Recurrent AKI-date" placeholder="input date">
+                  <input type="text name="Recurrent AKI-cause" placeholder="Cause of AKI">
+                </td> 
+              </tr>`;
+        sec4TB.innerHTML += autoGenerateYesNo("MAKE");
+        sec4TB.innerHTML += `<tr>
+                <td rowspan="3">MA KE</td>
+                <td>KRT</td>
+                <td>
+                  <input type="radio" name="MAKE-KRT" value="yes">1. Yes
+                  <input type="radio" name="MAKE-KRT" value="no">0. No
+                  <input type="text" name="MAKE-KRT-date" placeholder="input date">
+                </td> 
+              </tr>
+              <tr>
+              <td>persistent kidney dysfunction</td>
+                <td>
+                  <input type="radio" name="MAKE-persistent kidney dysfunction" value="yes">1. Yes
+                  <input type="radio" name="MAKE-persistent kidney dysfunction" value="no">0. No
+                </td> 
+              </tr>
+              <tr>
+              <td>Death</td> 
+                <td>
+                  <input type="radio" name="MAKE-Death" value="yes">1. Yes
+                  <input type="radio" name="MAKE-Death" value="no">0. No
+                  <input type="text" name="MAKE-Death-date" placeholder="input date">
+                </td> 
+              </tr>`;
+              sec4TB.innerHTML += autoGenerateHeader("Cardiovascular outcomes");
+              sec4TB.innerHTML += autoGenerateYesNo("Myocardial infarction");
+              sec4TB.innerHTML += autoGenerateYesNo("Stroke");
+              sec4TB.innerHTML += autoGenerateYesNo("ADHF");
+              sec4TB.innerHTML += autoGenerateYesNo("AF");
+              sec4TB.innerHTML += autoGenerateHeader("Other");
+              sec4TB.innerHTML += `<tr>
+                <td colspan="2">Readmission</td>
+                <td>
+                  <input type="radio" name="Readmission" value="yes">1. Yes
+                  <input type="radio" name="Readmission" value="no">0. No
+                  <input type="text" name="Readmission-date" placeholder="input date">
+                  <input type="text name="Readmission-cause" placeholder="Cause of readmission">
+                </td> 
+              </tr>`;
+              sec4TB.innerHTML += autoGenerateYesNo("New DM type 2");
+              sec4TB.innerHTML += autoGenerateYesNo("New HT");
+              sec4TB.innerHTML += autoGenerateYesNo("New DLP");
+              sec4TB.innerHTML += `<tr>
+                <td colspan="2">New Fracture</td>
+                <td>
+                  <input type="radio" name="New Fracture" value="yes">1. Yes
+                  <input type="radio" name="New Fracture" value="no">0. No
+                  <input type="text" name="New Fracture-date" placeholder="input date">
+                  <input type="text name="New Fracture-location" placeholder="Location">
+                </td> 
+              </tr>`;
+              sec4TB.innerHTML += `<tr>
+                <td colspan="2">New Malignancy</td>
+                <td>
+                  <input type="radio" name="New Malignancy" value="yes">1. Yes
+                  <input type="radio" name="New Malignancy" value="no">0. No
+                  <input type="text" name="New Malignancy-date" placeholder="input date">
+                  <input type="text name="New Malignancy-location" placeholder="Location">
+                </td> 
+              </tr>`;
+              sec4TB.innerHTML += `<tr>
+                <td colspan="2">Other</td>
+                <td>
+                  <input type="radio" name="Outcome-Other" value="yes">1. Yes
+                  <input type="radio" name="Outcome-Other" value="no">0. No
+                  <input type="text" name="Outcome-Other-cause" placeholder="Please define">
+                  <input type="text name="Outcome-Other-date" placeholder="input date">
+                </td> 
+              </tr>`;
+        </script>
+      </table>
+    </section>
+    <section>
+      <table id="genNameTB"></table>
+    </section>
     <div class="button-container">
         <button type="submit" id="submit-button">Send</button>
     </div>
@@ -555,5 +704,39 @@
       }
     }
     document.getElementById("MAP-btn").addEventListener('click',()=>{autoSetMAP(10)});
+
+
+
+    //get all input name
+    const inputArr = document.querySelectorAll("input");
+    const nameArr = [];
+
+          //check duplicate input name
+    let duplicate = false;
+    for(const i of inputArr){
+      duplicate = false;
+      for(const j of nameArr){
+        if(i.name===j){
+          duplicate = true;
+          break;
+        }
+      }
+      if(!duplicate){
+        nameArr.push(i.name);
+      }
+    }
+    //console.log(nameArr);
+    const genName = document.getElementById("genNameTB");
+    const genNameTable = (name) => {
+        return `<td>${name}</td>`;
+    }
+    let nameString = "";
+
+    for(const i of nameArr){
+      nameString += genNameTable(i);
+    }
+    //console.log(nameString);
+    genName.innerHTML += "<tr>"+nameString+"</tr>";
+    genName.classList.add("hidden");
     </script>
 </html>
