@@ -640,8 +640,12 @@
             if(sec[j].classList.contains("hidden") == false){
               sec[j].classList.add("hidden");
             }
+            if(btn[j].classList.contains("black-btn")){
+              btn[j].classList.remove("black-btn");
+            }
           }
           sec[i].classList.remove("hidden"); //show the section that btn pressed
+          btn[i].classList.add("black-btn");
         });
       }
 
