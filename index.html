@@ -552,17 +552,21 @@
       </fieldset>
     </section>
 
-    <script>
-        
-
-      </script>
-
     <section> 
       <table id="genNameTB"></table>
     </section>
     <div class="button-container">
-        <button type="submit" id="submit-button">Send</button>
+        <button type="button" id="submit-button">Send</button>
     </div>
+
+    <dialog id="confirmSubmit" style="margin: auto;">
+      <p>Confirm submission</p>
+      <div style="display: flex; justify-content: center;margin-top: 10px;">
+        <button type="button" id="confirmSubmitBTNY" style="margin: 0 auto">Yes</button>
+        <button type="button" id="confirmSubmitBTNN" style="margin: 0 auto">No</button>
+      </div>
+    </dialog>
+
     </form>
     <div
       id="message"
@@ -582,9 +586,20 @@
   </body>
     
     <script>
-      document.getElementById("form").addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent the default form submission
+      const akiForm = document.getElementById("form");
+      const confirmSubmit = document.getElementById("confirmSubmit");
+      document.getElementById("submit-button").addEventListener('click',()=>{
+        confirmSubmit.showModal();
+      });
+      
+      document.getElementById("confirmSubmitBTNN").addEventListener("click",()=>{confirmSubmit.close()});
+      document.getElementById("confirmSubmitBTNY").addEventListener("click",()=>{
+        confirmSubmit.close();
+        submitForm();
+      });
 
+      const submitForm = () => {
+        
         //merge the indication text before sending
         const indicationText = document.getElementById("ICRRT-other-text");
         let indicationOutput = "";
@@ -607,7 +622,7 @@
         document.getElementById("submit-button").disabled = true;
 
         // Collect the form data
-        var formData = new FormData(this);
+        var formData = new FormData(akiForm);
         var keyValuePairs = [];
         for (var pair of formData.entries()) {
           keyValuePairs.push(pair[0] + "=" + pair[1]);
@@ -657,7 +672,7 @@
               "An error occurred while submitting the form.";
             document.getElementById("message").style.display = "block";
           });
-      });
+      };
 
       //script to control section
       let sectionN = 5;
