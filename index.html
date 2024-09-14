@@ -209,9 +209,7 @@
               <input type="radio" value="no" name="Smoking">2. No
             </span>
             <br>
-            <span style="margin-left:2%">
-              <input type="number" name="Packyear"> Packyear
-            </span>
+              <input type="number" name="Packyear" style="margin-left:2%; width:45%" placeholder="(smoking)"> Packyear
           </td>
         </tr>
 
@@ -280,7 +278,7 @@
             <input type="radio" value="Systemic disease/GN" name="Etiology of AKI">6. Systemic disease/GN
             <input type="radio" value="Multifactorial" name="Etiology of AKI">7. Multifactorial
             <input type="radio" value="Other" name="Etiology of AKI">8. Other
-            <input type="text" name="Etiology-Other">
+            <input type="text" name="Etiology-Other" placeholder="Please identify">
 
             <!----Other have same name as other in part I---->
         </tr>
@@ -298,13 +296,14 @@
             <input type="radio" value="CRRT" name="First Mode of RRT">3. CRRT
             <hr>
             <p>Indication for RRT</p>
-            <input type="checkbox" value="yes" name="I/C RRT Acidosis">1. Acidosis
-            <input type="checkbox" value="yes" name="I/C RRT Hyperkalemia">2. Hyperkalemia
-            <input type="checkbox" value="yes" name="I/C RRT Intoxication">3. Intoxication
-            <input type="checkbox" value="yes" name="I/C RRT Volume overload/control">4. Volume overload/control
-            <input type="checkbox" value="yes" name="I/C RRT Uremia">5. Uremia
-            <input type="checkbox" value="yes" name="I/C RRT Other">6. Other
-            <input type="text" name="Indication-Other">
+            <input type="checkbox" id="ICRRT-Acidosis">1. Acidosis
+            <input type="checkbox" id="ICRRT-Hyperkalemia">2. Hyperkalemia
+            <input type="checkbox" id="ICRRT-Intoxication">3. Intoxication
+            <input type="checkbox" id="ICRRT-VolumeOverload">4. Volume overload/control
+            <input type="checkbox" id="ICRRT-Uremia">5. Uremia
+            <input type="checkbox" id="ICRRT-Other">6. Other
+            <input type="text" name="Indication-Other" id="ICRRT-other-text" placeholder="Please identify">
+
 
             <!----Other have same name as other in part I---->
         </tr>
@@ -404,7 +403,7 @@
             <input type="radio" name="Cause of death" value="Cardiovascular">1. Cardiovascular
             <input type="radio" name="Cause of death" value="Sepsis">2. Sepsis
             <input type="radio" name="Cause of death" value="Renal">3. Renal
-            <input type="radio" name="Cause of death" value="Other">4. Other<input type="text" name="Cause of death">
+            <input type="radio" name="Cause of death" value="Other">4. Other<input type="text" name="Cause of death" placeholder="Please identify">
           </td> 
         </tr>
 
@@ -524,15 +523,31 @@
     <section id="section5" style="margin-top: 20px">
       <fieldset style="width:90%; margin: 0 auto">
       <legend><h3>Add reminder</h3></legend>
-      <button type="button" id="Note-lossFU-btn" style="margin-bottom: 10px;">Loss F/U</button>
+
+      <!--- Button for quicker adding reminder -->
+      <p>Loss F/U:
+      <button type="button" id="Note-lossFU3mo-btn" style="margin-bottom: 10px; margin-left: 5px;">3mo</button>
+
+      <button type="button" id="Note-lossFU6mo-btn" style="margin-bottom: 10px;margin-left: 5px;">6mo</button>
+
+      <button type="button" id="Note-lossFU9mo-btn" style="margin-bottom: 10px;margin-left: 5px;">9mo</button>
       
-      <input type="text" style="width:50%; margin-left: 10px;" id="Note-lossFU-date"><br>
+      <button type="button" id="Note-lossFU12mo-btn" style="margin-bottom: 10px;margin-left: 5px;">12mo</button>
+      </p>
 
       <button type="button" id="Note-UACR-btn" style="margin-bottom: 10px;">UACR</button>
-      <br>
 
-      <button type="button" id="Note-PastHx-btn" style="margin-bottom: 10px;">Past history</button>
+
+      <button type="button" id="Note-PastHx-btn" style="margin-bottom: 10px;margin-left: 5px;">Past history</button>
+
+      <button type="button" id="Note-DenovoCKD-btn" style="margin-bottom: 10px;margin-left: 5px;">Denovo CKD</button>
+
+      <button type="button" id="Note-PersistentKD-btn" style="margin-bottom: 10px;">Persistent kidney dysfunction</button>
+
+      <button type="button" id="Note-ProgressionCKD-btn" style="margin-bottom: 10px;">Progression of CKD</button>
       
+
+      <!--  Free style note -->
       <textarea cols="35" rows="10" name="Note" id="note" style="text-align:left; margin: 0 auto"></textarea>
       </fieldset>
     </section>
@@ -569,6 +584,24 @@
     <script>
       document.getElementById("form").addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent the default form submission
+
+        //merge the indication text before sending
+        const indicationText = document.getElementById("ICRRT-other-text");
+        let indicationOutput = "";
+        const checkIndication = (indication) => {
+          if(document.getElementById(`ICRRT-${indication}`).checked){
+            indicationOutput += indication+", ";
+          }
+        };
+        checkIndication("Acidosis");
+        checkIndication("Hyperkalemia");
+        checkIndication("Intoxication");
+        checkIndication("VolumeOverload");
+        checkIndication("Uremia");
+        checkIndication("Other");
+        indicationText.value = indicationOutput+indicationText.value;
+
+        //display submitting...
         document.getElementById("message").textContent = "Submitting..";
         document.getElementById("message").style.display = "block";
         document.getElementById("submit-button").disabled = true;
@@ -775,10 +808,13 @@
         const noteTextarea = document.getElementById("note");
         const addTextToNote = (textNote) => {
             noteTextarea.value += textNote;
-        }
+        }      
 
         //add text loss F/U
-        document.getElementById("Note-lossFU-btn").addEventListener('click',()=>{addTextToNote("loss F/U "+document.getElementById("Note-lossFU-date")?.value+"\n")})
+        document.getElementById("Note-lossFU3mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 3mo\n")})
+        document.getElementById("Note-lossFU6mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 6mo\n")})
+        document.getElementById("Note-lossFU9mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 9mo\n")})
+        document.getElementById("Note-lossFU12mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 12mo\n")})
 
         //add text UACR
         document.getElementById("Note-UACR-btn").addEventListener('click',()=>{addTextToNote("UACR\n")})
@@ -786,5 +822,14 @@
         //add text Past history
         document.getElementById("Note-PastHx-btn").addEventListener('click',()=>{addTextToNote("Past history\n")})
 
+        //add text DENOVO CKD
+        document.getElementById("Note-DenovoCKD-btn").addEventListener('click',()=>{addTextToNote("Denovo CKD\n")})
+
+        //add text persistent KD
+        document.getElementById("Note-PersistentKD-btn").addEventListener('click',()=>{addTextToNote("Persistent kidney dysfunction\n")})
+
+        //Progression of CKD
+        document.getElementById("Note-ProgressionCKD-btn").addEventListener('click',()=>{addTextToNote("Progression of CKD\n")})
+                 
     </script>
 </html>
