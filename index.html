@@ -519,12 +519,28 @@
       </table>
     </section>
 
+    <!---Section 5--->
+
     <section id="section5" style="margin-top: 20px">
       <fieldset style="width:90%; margin: 0 auto">
       <legend><h3>Add reminder</h3></legend>
+      <button type="button" id="Note-lossFU-btn" style="margin-bottom: 10px;">Loss F/U</button>
+      
+      <input type="text" style="width:50%; margin-left: 10px;" id="Note-lossFU-date"><br>
+
+      <button type="button" id="Note-UACR-btn" style="margin-bottom: 10px;">UACR</button>
+      <br>
+
+      <button type="button" id="Note-PastHx-btn" style="margin-bottom: 10px;">Past history</button>
+      
       <textarea cols="35" rows="10" name="Note" id="note" style="text-align:left; margin: 0 auto"></textarea>
       </fieldset>
     </section>
+
+    <script>
+        
+
+      </script>
 
     <section> 
       <table id="genNameTB"></table>
@@ -749,5 +765,22 @@
     //console.log(nameString);
     genName.innerHTML += "<tr>"+nameString+"</tr>";
     genName.classList.add("hidden");
+
+    //add Button for quicker input
+
+        const noteTextarea = document.getElementById("note");
+        const addTextToNote = (textNote) => {
+            noteTextarea.value += textNote;
+        }
+
+        //add text loss F/U
+        document.getElementById("Note-lossFU-btn").addEventListener('click',()=>{addTextToNote("loss F/U "+document.getElementById("Note-lossFU-date")?.value+"\n")})
+
+        //add text UACR
+        document.getElementById("Note-UACR-btn").addEventListener('click',()=>{addTextToNote("UACR\n")})
+
+        //add text Past history
+        document.getElementById("Note-PastHx-btn").addEventListener('click',()=>{addTextToNote("Past history\n")})
+
     </script>
 </html>
