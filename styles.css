@@ -103,3 +103,7 @@ section{
 #section3 td{
   min-width: 3rem;
 }
+.black-btn{
+  background-color: grey;
+  color: black;
+}
