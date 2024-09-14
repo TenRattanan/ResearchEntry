@@ -52,6 +52,9 @@ input[type="checkbox"],input[type="radio"]{
 input{
   text-align: center;
 }
+button:hover {
+  cursor: pointer;
+}
 .button-container{
   width: 100%;
   text-align: center;
