@@ -626,9 +626,11 @@
         var keyValuePairs = [];
         for (var pair of formData.entries()) {
           keyValuePairs.push(pair[0] + "=" + pair[1]);
+          localStorage.setItem(pair[0],pair[1]);
         }
 
         var formDataString = keyValuePairs.join("&");
+        
 
         // Send a POST request to your Google Apps Script
         fetch(
@@ -652,6 +654,7 @@
           })
           .then(function (data) {
             // Display a success message
+            localStorage.clear();
             document.getElementById("message").textContent =
               "Data submitted successfully!";
             document.getElementById("message").style.display = "block";
@@ -847,5 +850,17 @@
         //Progression of CKD
         document.getElementById("Note-ProgressionCKD-btn").addEventListener('click',()=>{addTextToNote("Progression of CKD\n")})
                  
+        //get unfinished Data
+        const allInput = document.querySelectorAll("input");
+        for(const eachInput of allInput){
+          eachInput.value = localStorage.getItem(`${eachInput.name}`);
+          eachInput.addEventListener('change',()=>{
+            var formData = new FormData(akiForm);
+            for (var pair of formData.entries()) {
+              localStorage.setItem(pair[0],pair[1]);
+            }
+          })
+        }
+          
     </script>
 </html>
