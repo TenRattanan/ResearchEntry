@@ -545,6 +545,8 @@
       <button type="button" id="Note-PersistentKD-btn" style="margin-bottom: 10px;">Persistent kidney dysfunction</button>
 
       <button type="button" id="Note-ProgressionCKD-btn" style="margin-bottom: 10px;">Progression of CKD</button>
+
+      <button type="button" id="Note-IndicationForRRT-btn" style="margin-bottom: 10px;">Indication for RRT</button>
       
 
       <!--  Free style note -->
@@ -830,36 +832,45 @@
         }      
 
         //add text loss F/U
-        document.getElementById("Note-lossFU3mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 3mo\n")})
-        document.getElementById("Note-lossFU6mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 6mo\n")})
-        document.getElementById("Note-lossFU9mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 9mo\n")})
-        document.getElementById("Note-lossFU12mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 12mo\n")})
+        document.getElementById("Note-lossFU3mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 3mo\n")});
+        document.getElementById("Note-lossFU6mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 6mo\n")});
+        document.getElementById("Note-lossFU9mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 9mo\n")});
+        document.getElementById("Note-lossFU12mo-btn").addEventListener('click',()=>{addTextToNote("loss F/U 12mo\n")});
 
         //add text UACR
-        document.getElementById("Note-UACR-btn").addEventListener('click',()=>{addTextToNote("UACR\n")})
+        document.getElementById("Note-UACR-btn").addEventListener('click',()=>{addTextToNote("UACR\n")});
 
         //add text Past history
-        document.getElementById("Note-PastHx-btn").addEventListener('click',()=>{addTextToNote("Past history\n")})
+        document.getElementById("Note-PastHx-btn").addEventListener('click',()=>{addTextToNote("Past history\n")});
 
         //add text DENOVO CKD
-        document.getElementById("Note-DenovoCKD-btn").addEventListener('click',()=>{addTextToNote("Denovo CKD\n")})
+        document.getElementById("Note-DenovoCKD-btn").addEventListener('click',()=>{addTextToNote("Denovo CKD\n")});
 
         //add text persistent KD
-        document.getElementById("Note-PersistentKD-btn").addEventListener('click',()=>{addTextToNote("Persistent kidney dysfunction\n")})
+        document.getElementById("Note-PersistentKD-btn").addEventListener('click',()=>{addTextToNote("Persistent kidney dysfunction\n")});
 
-        //Progression of CKD
-        document.getElementById("Note-ProgressionCKD-btn").addEventListener('click',()=>{addTextToNote("Progression of CKD\n")})
+        //add text Progression of CKD
+        document.getElementById("Note-ProgressionCKD-btn").addEventListener('click',()=>{addTextToNote("Progression of CKD\n")});
+
+        //add text Note-IndicationForRRT-btn
+        document.getElementById("Note-IndicationForRRT-btn").addEventListener('click',()=>{addTextToNote("Indication for RRT \n")});
                  
         //get unfinished Data
         const allInput = document.querySelectorAll("input[type=text], input[type=number]");
+        const allRadioInput = document.querySelectorAll("input[type=radio]");
         for(const eachInput of allInput){
           eachInput.value = localStorage.getItem(`${eachInput.name}`);
-          eachInput.addEventListener('change',()=>{
-            var formData = new FormData(akiForm);
-            for (var pair of formData.entries()) {
-              localStorage.setItem(pair[0],pair[1]);
-            }
-          })
+          eachInput.addEventListener('change',(e)=>{
+            localStorage.setItem(e.currentTarget.name,e.currentTarget.value);
+          });
+        }
+        for(const eachInput of allRadioInput){
+          if(eachInput.value == localStorage.getItem(`${eachInput.name}`)){
+            eachInput.checked = true;
+          } 
+          eachInput.addEventListener('change',(e)=>{
+            localStorage.setItem(e.currentTarget.name,e.currentTarget.value);
+          });
         }
           
     </script>
