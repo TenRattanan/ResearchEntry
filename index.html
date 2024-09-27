@@ -851,7 +851,7 @@
         document.getElementById("Note-ProgressionCKD-btn").addEventListener('click',()=>{addTextToNote("Progression of CKD\n")})
                  
         //get unfinished Data
-        const allInput = document.querySelectorAll("input");
+        const allInput = document.querySelectorAll("input[type=text], input[type=number]");
         for(const eachInput of allInput){
           eachInput.value = localStorage.getItem(`${eachInput.name}`);
           eachInput.addEventListener('change',()=>{
