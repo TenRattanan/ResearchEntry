@@ -548,6 +548,7 @@
 
       <button type="button" id="Note-IndicationForRRT-btn" style="margin-bottom: 10px;">Indication for RRT</button>
       
+      <button type="button" id="Note-DurationFU-btn" style="margin-bottom: 10px;">Duration FU less than 1 yr</button>
 
       <!--  Free style note -->
       <textarea cols="35" rows="10" name="Note" id="note" style="text-align:left; margin: 0 auto"></textarea>
@@ -702,6 +703,12 @@
           btn[i].classList.add("black-btn");
         });
       }
+      //initial show only 1st section
+      for(let i=1;i<sectionN;i++){
+        if(!sec[i].classList.contains("hidden")){
+            sec[i].classList.add("hidden");
+        };
+      }
 
 
     //set default date
@@ -854,7 +861,10 @@
 
         //add text Note-IndicationForRRT-btn
         document.getElementById("Note-IndicationForRRT-btn").addEventListener('click',()=>{addTextToNote("Indication for RRT \n")});
-                 
+        
+        //add text Note-IndicationForRRT-btn
+        document.getElementById("Note-DurationFU-btn").addEventListener('click',()=>{addTextToNote("Duration F/U < 1 yr\n")});
+
         //get unfinished Data
         const allInput = document.querySelectorAll("input[type=text], input[type=number]");
         const allRadioInput = document.querySelectorAll("input[type=radio]");
