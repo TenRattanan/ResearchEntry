@@ -722,16 +722,16 @@
     const createTable = (TBhead,TBstep="0.01") => {
         return `<tr>
           <td id=${TBhead}>${TBhead}</td>
-          <td><input type="number" name="${TBhead}-1stvisit" step=${TBstep} id="${TBhead}-1stvisit" step=${TBstep}></td>
-          <td><input type="number" name="${TBhead}-3mo" step=${TBstep} id="${TBhead}-3mo"></td>
-          <td><input type="number" name="${TBhead}-6mo" step=${TBstep} id="${TBhead}-6mo"></td>
-          <td><input type="number" name="${TBhead}-9mo" step=${TBstep} id="${TBhead}-9mo"></td>
-          <td><input type="number" name="${TBhead}-12mo" step=${TBstep} id="${TBhead}-12mo"></td>
-          <td><input type="number" name="${TBhead}-15mo" step=${TBstep} id="${TBhead}-15mo"></td>
-          <td><input type="number" name="${TBhead}-18mo" step=${TBstep} id="${TBhead}-18mo"></td>
-          <td><input type="number" name="${TBhead}-24mo" step=${TBstep} id="${TBhead}-24mo"></td>
-          <td><input type="number" name="${TBhead}-extra1" step=${TBstep} id="${TBhead}-extra1"></td>
-          <td><input type="number" name="${TBhead}-extra2" step=${TBstep} id="${TBhead}-extra2"></td>
+          <td><input type="text" name="${TBhead}-1stvisit" id="${TBhead}-1stvisit" ></td>
+          <td><input type="text" name="${TBhead}-3mo" id="${TBhead}-3mo"></td>
+          <td><input type="text" name="${TBhead}-6mo"  id="${TBhead}-6mo"></td>
+          <td><input type="text" name="${TBhead}-9mo"  id="${TBhead}-9mo"></td>
+          <td><input type="text" name="${TBhead}-12mo"  id="${TBhead}-12mo"></td>
+          <td><input type="text" name="${TBhead}-15mo"  id="${TBhead}-15mo"></td>
+          <td><input type="text" name="${TBhead}-18mo"  id="${TBhead}-18mo"></td>
+          <td><input type="text" name="${TBhead}-24mo"  id="${TBhead}-24mo"></td>
+          <td><input type="text" name="${TBhead}-extra1"  id="${TBhead}-extra1"></td>
+          <td><input type="text" name="${TBhead}-extra2"  id="${TBhead}-extra2"></td>
         </tr>`;
     }
 
@@ -883,5 +883,82 @@
           });
         }
           
+    //add arrow keyboard function to section 3
+    const focusDOM = document.getElementById('section3').querySelectorAll('input');
+    let currentFocus = 0;
+    const returnIndex = (event) => {
+      for(let i = 0; i<focusDOM.length; i++){
+        if(event.currentTarget.name==focusDOM[i].name){
+          console.log(i);
+          currentFocus = i;
+          return i;
+        }
+      }
+      console.log('cant find the dome');
+      return "can't find the dome";
+    }
+    focusDOM.forEach(element => element.addEventListener('focus', returnIndex));
+    const shiftFocus = (event) => {
+      if(!document.getElementById('section3').classList.contains('hidden'))
+      {
+        switch(event.keyCode){
+          case 37:
+            console.log('left');
+            if(currentFocus == 9){
+              focusDOM[7].focus();
+            }else if(currentFocus == 11){
+              focusDOM[9].focus();
+            }else if(currentFocus == 10){
+              focusDOM[8].focus();
+            }else if(currentFocus == 0){
+              focusDOM[10].focus();
+            }else if(currentFocus != 8){
+              focusDOM[currentFocus-1].focus();
+            }
+            break;
+          case 38:
+            if(currentFocus == 20){
+              focusDOM[9].focus();
+            }else if(currentFocus <= 19 && currentFocus >11){
+              focusDOM[currentFocus-12].focus();
+            }else if(currentFocus == 21){
+              focusDOM[11].focus();
+            }else if(currentFocus > 21){
+              focusDOM[currentFocus-10].focus();
+            }
+            console.log('up');
+            break;
+          case 39:
+            console.log('right');
+            if(currentFocus == 7){
+              focusDOM[9].focus();
+            }else if(currentFocus == 9){
+              focusDOM[11].focus();
+            }else if(currentFocus == 8){
+              focusDOM[10].focus();
+            }else if(currentFocus == 10){
+              focusDOM[0].focus();
+            }else if(currentFocus+1 < focusDOM.length){
+              focusDOM[currentFocus+1].focus();
+            }
+            break;
+          case 40:
+            console.log('down');
+            if(currentFocus<=7){
+              focusDOM[currentFocus+12].focus();
+            }else if(currentFocus==8){
+              focusDOM[9].focus();
+            }else if(currentFocus==9){
+              focusDOM[currentFocus+11].focus();
+            }else if(currentFocus==10){
+              focusDOM[11].focus();
+            }else if(currentFocus>=11 && currentFocus+10<focusDOM.length){
+              focusDOM[currentFocus+10].focus();
+            }
+            break;
+        }
+      }
+    }
+    window.addEventListener('keydown', shiftFocus);
     </script>
 </html>
